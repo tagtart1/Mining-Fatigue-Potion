@@ -71,6 +71,7 @@ public class MiningFatiguePotion
         {
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD, Items.CLOCK, ModPotions.MINING_FATIGUE_POTION.get()));
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.MINING_FATIGUE_POTION.get(), Items.REDSTONE, ModPotions.LONGER_MINING_FATIGUE_POTION.get()));
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.MINING_FATIGUE_POTION.get(), Items.GLOWSTONE_DUST, ModPotions.STRONGER_MINING_FATIGUE_POTION.get()));
         }
     }
 }

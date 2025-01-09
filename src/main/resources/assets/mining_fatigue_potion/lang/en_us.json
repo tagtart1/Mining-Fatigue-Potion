@@ -1,5 +1,13 @@
 {
   "item.minecraft.potion.effect.mining_fatigue_potion": "Potion of Mining Fatigue",
   "item.minecraft.splash_potion.effect.mining_fatigue_potion": "Splash Potion of Mining Fatigue",
-  "item.minecraft.lingering_potion.effect.mining_fatigue_potion": "Lingering Potion of Mining Fatigue"
+  "item.minecraft.lingering_potion.effect.mining_fatigue_potion": "Lingering Potion of Mining Fatigue",
+
+  "item.minecraft.potion.effect.longer_mining_fatigue_potion": "Potion of Mining Fatigue",
+  "item.minecraft.splash_potion.effect.longer_mining_fatigue_potion": "Splash Potion of Mining Fatigue",
+  "item.minecraft.lingering_potion.effect.longer_mining_fatigue_potion": "Lingering Potion of Mining Fatigue",
+
+  "item.minecraft.potion.effect.stronger_mining_fatigue_potion": "Potion of Mining Fatigue",
+  "item.minecraft.splash_potion.effect.stronger_mining_fatigue_potion": "Splash Potion of Mining Fatigue",
+  "item.minecraft.lingering_potion.effect.stronger_mining_fatigue_potion": "Lingering Potion of Mining Fatigue"
 }
