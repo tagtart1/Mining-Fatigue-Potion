@@ -1,8 +1,11 @@
 package net.tagtart.miningfatiguepotion;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -11,6 +14,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.tagtart.miningfatiguepotion.potion.ModPotions;
+import net.tagtart.miningfatiguepotion.util.BetterBrewingRecipe;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -35,6 +40,7 @@ public class MiningFatiguePotion
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+        ModPotions.register(modEventBus);
 
     }
 
@@ -63,7 +69,8 @@ public class MiningFatiguePotion
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD, Items.CLOCK, ModPotions.MINING_FATIGUE_POTION.get()));
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.MINING_FATIGUE_POTION.get(), Items.REDSTONE, ModPotions.LONGER_MINING_FATIGUE_POTION.get()));
         }
     }
 }
