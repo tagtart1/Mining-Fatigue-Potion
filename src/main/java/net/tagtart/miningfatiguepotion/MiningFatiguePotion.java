@@ -18,7 +18,7 @@ import net.tagtart.miningfatiguepotion.potion.ModPotions;
 import net.tagtart.miningfatiguepotion.util.BetterBrewingRecipe;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
+
 @Mod(MiningFatiguePotion.MOD_ID)
 public class MiningFatiguePotion
 {
@@ -62,7 +62,6 @@ public class MiningFatiguePotion
 
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
