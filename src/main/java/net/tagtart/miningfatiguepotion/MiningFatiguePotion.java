@@ -1,10 +1,15 @@
 package net.tagtart.miningfatiguepotion;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipe;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -68,9 +73,26 @@ public class MiningFatiguePotion
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.AWKWARD, Items.CLOCK, ModPotions.MINING_FATIGUE_POTION.get()));
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.MINING_FATIGUE_POTION.get(), Items.REDSTONE, ModPotions.LONGER_MINING_FATIGUE_POTION.get()));
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(ModPotions.MINING_FATIGUE_POTION.get(), Items.GLOWSTONE_DUST, ModPotions.STRONGER_MINING_FATIGUE_POTION.get()));
+            BrewingRecipe miningFatigueRecipe = new BrewingRecipe(
+                    Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.AWKWARD)),
+                    Ingredient.of(Items.CLOCK),
+                    PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.MINING_FATIGUE_POTION.get()));
+
+            BrewingRecipe longerMiningFatigueRecipe = new BrewingRecipe(
+                    Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.MINING_FATIGUE_POTION.get())),
+                    Ingredient.of(Items.REDSTONE),
+                    PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.LONGER_MINING_FATIGUE_POTION.get())
+            );
+
+            BrewingRecipe strongerMiningFatigueRecipe = new BrewingRecipe(
+                    Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.MINING_FATIGUE_POTION.get())),
+                    Ingredient.of(Items.GLOWSTONE_DUST),
+                    PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.STRONGER_MINING_FATIGUE_POTION.get())
+            );
+
+            BrewingRecipeRegistry.addRecipe(miningFatigueRecipe);
+            BrewingRecipeRegistry.addRecipe(longerMiningFatigueRecipe);
+            BrewingRecipeRegistry.addRecipe(strongerMiningFatigueRecipe);
         }
     }
 }
